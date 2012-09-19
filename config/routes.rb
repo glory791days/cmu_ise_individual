@@ -1,4 +1,6 @@
 YnishidaInd::Application.routes.draw do
+  resources :cafes
+  root :to => redirect('/cafes')
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

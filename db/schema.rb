@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120918180714) do
 
   create_table "cafes", :force => true do |t|
     t.string   "name"
-    t.string   "building"
+    t.string   "bldg"
     t.string   "category"
     t.integer  "price"
     t.integer  "time"

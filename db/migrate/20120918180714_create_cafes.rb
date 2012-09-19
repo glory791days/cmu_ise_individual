@@ -2,7 +2,7 @@ class CreateCafes < ActiveRecord::Migration
   def up
     create_table 'cafes' do |t|
       t.string 'name'
-      t.string 'building'
+      t.string 'bldg'
       t.string 'category'
       t.integer 'price'
       t.integer 'time'
