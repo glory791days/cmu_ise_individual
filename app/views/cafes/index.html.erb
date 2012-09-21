@@ -1,13 +1,10 @@
-<h1>Bancha</h1>
-<h3>Find your favorite cafeteria</h3>
-
 <table>
   <tr>
     <th>Name</th>
     <th>Building</th>
     <th>Category</th>
-    <th>Price</th>
-    <th>Time</th>
+    <th>Cost ($)</th>
+    <th>Time to spend(min)</th>
   </tr>
 
   <% @cafes.each do |cafe| %>
@@ -19,9 +16,11 @@
         <td><%= cafe.time %></td>
         <td><%= link_to 'Show', cafe %></td>
         <td><%= link_to 'Edit', edit_cafe_path(cafe) %></td>
-        <td><%= link_to 'Destroy', cafe, method: :delete,
+        <td><%= link_to 'Delete', cafe, method: :delete,
                         data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
+
+  <%=  link_to 'Add new cafe', new_cafe_path %>
 
 </table>

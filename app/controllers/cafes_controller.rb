@@ -3,7 +3,14 @@ class CafesController < ApplicationController
     @cafes = Cafe.all
   end
 
+  def show
+    id = params[:id]      #retrive cafe ID from URI
+    @cafe = Cafe.find(id) #look up cafe
+    #will render app/views/cafes/show.html.haml by default
+  end
+
   def new
+    # default: render 'new' template
   end
 
   def create
