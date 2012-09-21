@@ -6,6 +6,7 @@ class CreateCafes < ActiveRecord::Migration
       t.string 'category'
       t.integer 'price'
       t.integer 'time'
+      t.text 'description'
       # Add fields that let Rails automatically keep track
       # of when movies are added or modified:
       t.timestamps

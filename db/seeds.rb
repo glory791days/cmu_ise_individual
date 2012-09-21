@@ -6,8 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-default_cafes = [
-    {:name => 'Taste of India', :place => 'Resnik House', :category => 'Indian', :price => '8', :time => '30' },
-    {:name => 'The Underground', :place => 'Morewood Gardens', :category => 'General', :price => '7', :time => '40' },
-    {:name => 'Schatz Dining Room', :place => 'University Center', :category => 'General', :price => '10', :time => '40' },
+more_cafes = [
+    {:name => 'Taste of India', :bldg => 'Resnik House', :category => 'Indian', :price => '8', :time => '30' },
+    {:name => 'The Underground', :bldg => 'Morewood Gardens', :category => 'General', :price => '7', :time => '40' },
+    {:name => 'Schatz Dining Room', :bldg => 'University Center', :category => 'General', :price => '10', :time => '40' },
 ]
+more_cafes.each do |c|
+  Cafe.create!(c)
+end
