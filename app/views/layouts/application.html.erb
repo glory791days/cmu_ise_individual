@@ -9,6 +9,12 @@
 <body>
 <h1>Bancha -Find your favorite cafeteria at CMU!-</h1>
 
+<% if flash[:notice] %>
+  <div class="message" id="notice"> <%= flash[:notice] %> </div>
+<% elsif flash[:warning] %>
+  <div class="message" id="warning"> <%= flash[:warning] %> </div>
+<% end %>
+
 <%= yield %>
 
 </body>

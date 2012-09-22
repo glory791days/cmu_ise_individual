@@ -1,6 +1,6 @@
-<h2>Add new cafe information</h2>
+<h2>Edit cafe information</h2>
 
-<%= form_tag cafes_path, :method => :post do %>
+<%= form_tag cafe_path(@cafe), :method => :put do %>
   <%= label :cafe, :name, 'Name' %>
     <%= text_field :cafe, :name %><br />
 
