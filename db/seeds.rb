@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+<<<<<<< HEAD
 
 more_cafes = [
     {:name => 'Taste of India', :bldg => 'Resnik House', :category => 'Indian', :price => '8', :time => '30' },
@@ -14,3 +15,5 @@ more_cafes = [
 more_cafes.each do |c|
   Cafe.create!(c)
 end
+=======
+>>>>>>> parent of d64cd96... create cafes db and model
