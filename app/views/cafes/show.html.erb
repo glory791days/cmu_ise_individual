@@ -1,0 +1,13 @@
+<h3>Details about <%= @cafe.name %></h3>
+
+<ul>
+  <li>Building: <%= @cafe.bldg %></li>
+  <li>Category: <%= @cafe.category %></li>
+  <li>Average cost: $<%= @cafe.price %></li>
+  <li>Time to spend: <%= @cafe.time %>min</li>
+</ul>
+
+<h3>Description:</h3>
+<p id="description"><%= @cafe.description %></p>
+
+<%= link_to 'Back to cafe list', cafes_path %>

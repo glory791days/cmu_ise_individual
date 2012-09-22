@@ -1,0 +1,21 @@
+<h2>Add new cafe information</h2>
+
+<%= form_tag cafes_path, :method => :post do %>
+  <%= label :cafe, :name, 'Name' %>
+    <%= text_field :cafe, :name %>
+
+  <%= label :cafe, :bldg, 'Building' %>
+    <%= text_field :cafe, :bldg %>
+
+  <%= label :cafe, :category, 'Category' %>
+    <%= select :cafe, :category, ['General','Italian','Chinese','Indian','Japanese'] %>
+
+  <%= label :cafe, :price, 'How much did you paid?' %>
+    <%= text_field :cafe, :price %>
+
+  <%= label :cafe, :time, 'How long did you spend (in min)?' %>
+    <%= text_field :cafe, :time %>
+
+  <%= submit_tag 'Add this cafe' %>
+
+<% end %>
