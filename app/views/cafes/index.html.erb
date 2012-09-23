@@ -4,7 +4,7 @@
     <th>Building</th>
     <th>Category</th>
     <th>Cost ($)</th>
-    <th>Time to spend(min)</th>
+    <th>Time (min)</th>
   </tr>
 
   <% @cafes.each do |cafe| %>
@@ -14,8 +14,8 @@
         <td><%= cafe.category %></td>
         <td><%= cafe.price %></td>
         <td><%= cafe.time %></td>
-        <td><%= link_to 'Show', cafe %></td>
-        <td><%= link_to 'Edit', edit_cafe_path(cafe) %></td>
+        <td><%= link_to 'Detail', cafe %></td>
+        <td><%= link_to 'Edit Info', edit_cafe_path(cafe) %></td>
         <td><%= link_to 'Delete', cafe, method: :delete,
                         data: { confirm: 'Are you sure?' } %></td>
       </tr>
