@@ -1,4 +1,6 @@
 YnishidaInd::Application.routes.draw do
+  devise_for :users
+
   resources :cafes
   root :to => redirect('/cafes')
   # The priority is based upon order of creation:

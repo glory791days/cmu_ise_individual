@@ -8,6 +8,7 @@
     <%= render 'layouts/shim' %>
   </head>
 
+
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
@@ -16,6 +17,8 @@
       <% elsif flash[:warning] %>
           <div class="message" id="warning"> <%= flash[:warning] %> </div>
       <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
