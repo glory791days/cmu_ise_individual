@@ -61,5 +61,8 @@ module YnishidaInd
 
 		#for deviseY
 		config.assets.initialize_on_precompile = false
+
+		#to use custom font
+		#config.assets.paths << "#{Rails.root}/apps/assets/fonts"
   end
 end
