@@ -11,10 +11,25 @@ describe User do
 		end
 	end
 
-	xit { should be_valid }    #pending
+	its(:email) {should == "test.user@test.cmu.edu"}
+	it { should be_valid }    #pending
 
-	describe "when name is not present" do
+	context "when name is not present" do
 		before { user.name = " " }
 		it { should_not be_valid }
+	end
+
+	context "review associations" do
+		let!(:older_review) do
+			FactoryGirl.create(:review, user: user, created_at: 1.day.ago)
+		end
+		let!(:newer_review) do
+			FactoryGirl.create(:review, user: user, created_at: 1.hour.ago)
+		end
+
+		it "should have the right reviews in right order" do
+			user.reviews.should == [newer_review, older_review]
+		end
+
 	end
 end
