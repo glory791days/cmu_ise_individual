@@ -12,16 +12,18 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <% if flash[:notice] %>
-          <div class="message" id="notice"> <%= flash[:notice] %> </div>
-      <% elsif flash[:warning] %>
-          <div class="message" id="warning"> <%= flash[:warning] %> </div>
-      <% end %>
+      <div class="notification">
+        <% if flash[:notice] %>
+            <div class="message" id="notice"> <%= flash[:notice] %> </div>
+        <% elsif flash[:warning] %>
+            <div class="message" id="warning"> <%= flash[:warning] %> </div>
+        <% end %>
 
-      <% if false %> <%# commented out %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <% end %>
+        <% if false %> <%# commented out %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <% end %>
+      </div>
 
       <%= yield %>
       <%= render 'layouts/footer' %>

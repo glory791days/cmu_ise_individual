@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003205932) do
+ActiveRecord::Schema.define(:version => 20121014142742) do
 
   create_table "cafes", :force => true do |t|
     t.string   "name"
-    t.string   "bldg"
+    t.string   "place"
     t.string   "category"
     t.integer  "price"
     t.integer  "time"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(:version => 20121003205932) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "star"
+    t.string   "content"
+    t.integer  "price"
+    t.integer  "time"
+    t.string   "order"
+    t.integer  "user_id"
+    t.integer  "cafe_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reviews", ["cafe_id", "created_at"], :name => "index_reviews_on_cafe_id_and_created_at"
+  add_index "reviews", ["user_id", "created_at"], :name => "index_reviews_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name",                   :default => "", :null => false

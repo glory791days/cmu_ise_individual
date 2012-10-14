@@ -1,24 +1,30 @@
 <h2>Edit cafe information</h2>
 
-<%= form_tag cafe_path(@cafe), :method => :put do %>
-  <%= label :cafe, :name, 'Name' %>
-    <%= text_field :cafe, :name %><br />
+<div id="edit_form">
+  <table>
 
-  <%= label :cafe, :bldg, 'Building' %>
-    <%= text_field :cafe, :bldg %><br />
+  <%= form_tag cafe_path(@cafe), :method => :put, :remote => true do %>
+    <%= label :cafe, :name, 'Name' %>
+      <%= text_field :cafe, :name %><br />
 
-  <%= label :cafe, :category, 'Category' %>
-    <%= select :cafe, :category, ['General','Italian','Chinese','Indian','Japanese'] %><br />
+    <%= label :cafe, :bldg, 'Building' %>
+      <%= text_field :cafe, :bldg %><br />
 
-  <%= label :cafe, :price, 'How much did you paid?' %>
-    <%= text_field :cafe, :price %><br />
+    <%= label :cafe, :category, 'Category' %>
+      <%= select :cafe, :category, ['General','Italian','Chinese','Indian','Japanese'] %><br />
 
-  <%= label :cafe, :time, 'How long did you spend (in min)?' %>
-    <%= text_field :cafe, :time %><br />
+    <%= label :cafe, :price, 'How much did you paid?' %>
+      <%= text_field :cafe, :price %><br />
 
-  <%= label :cafe, :description, 'Do you have any details to share?' %>
-    <%= text_field :cafe, :description %><br />
+    <%= label :cafe, :time, 'How long did you spend (in min)?' %>
+      <%= text_field :cafe, :time %><br />
 
-  <%= submit_tag 'Update' %>
+    <%= label :cafe, :description, 'Do you have any details to share?' %>
+      <%= text_field :cafe, :description %><br />
 
-<% end %>
+    <%= submit_tag 'Update' %>
+
+  <% end %>
+
+  </table>
+</div>

@@ -1,0 +1,6 @@
+<% if flash[:notice] %>
+ $(".notification").html("<%= flash[:notice] %>")
+<% elsif flash[:warning] %>
+ $(".notification").html("<%= flash[:warning] %>")
+<% end %>
+

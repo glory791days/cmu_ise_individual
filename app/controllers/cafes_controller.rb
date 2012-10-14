@@ -26,14 +26,18 @@ class CafesController < ApplicationController
   def update
     @cafe = Cafe.find params[:id]
     @cafe.update_attributes!(params[:cafe])
-    flash[:notice] = "#{@cafe.name} was successfully updated"
-    redirect_to cafe_path(@cafe)
+		respond_to do |format|
+			format.html {flash[:notice] = "#{@cafe.name} was successfully updated"; redirect_to cafe_path(@cafe) }
+			format.js {flash[:notice] = "#{@cafe.name} was successfully updated"; redirect_to edit_cafe_path(@cafe)}#edit
+		end
   end
 
   def destroy
     @cafe = Cafe.find params[:id]
     @cafe.destroy
-    flash[:notice] = "#{@cafe.name} was deleted"
-    redirect_to cafes_path
+		respond_to do |format|
+			format.html {flash[:notice] = "#{@cafe.name} was deleted"; redirect_to cafes_path}
+			format.js {flash[:notice] = "#{@cafe.name} was deleted"}
+		end
   end
 end

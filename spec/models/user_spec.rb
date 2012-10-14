@@ -1,19 +1,20 @@
 require 'spec_helper'
 
 describe User do
-  before do
-		@user = User.new(name: "Example User", email: "test@cmu.edu")
+	let(:user) { User.new(name: "Example User", email: "test@cmu.edu") }
+
+	subject { user }
+	attrs = [:name, :email, :reviews]
+	attrs.each do |attr|
+		it "should respond to #{attr}" do
+			should respond_to(attr)
+		end
 	end
 
-	subject { @user }
-	it { should respond_to(:name) }
-	it { should respond_to(:email) }
-
-	it { should be_valid }
+	xit { should be_valid }    #pending
 
 	describe "when name is not present" do
-		before { @user.name = " " }
+		before { user.name = " " }
 		it { should_not be_valid }
-
 	end
 end

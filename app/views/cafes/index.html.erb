@@ -3,7 +3,7 @@
   <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
 </div>
 
-<table>
+<table id="cafe_list">
   <tr>
     <th>Name</th>
     <th>Building</th>
@@ -22,7 +22,7 @@
         <td><%= link_to 'Detail', cafe %></td>
         <td><%= link_to 'Edit Info', edit_cafe_path(cafe) %></td>
         <td><%= link_to 'Delete', cafe, method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: 'Are you sure?' }, remote: true %></td>
       </tr>
   <% end %>
 </table>
