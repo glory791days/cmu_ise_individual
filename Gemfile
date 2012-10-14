@@ -9,6 +9,7 @@ gem 'bootstrap-sass', '2.0.4'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
+	gem 'factory_girl'
 end
 
 # Gems used only for assets and not required
@@ -28,6 +29,7 @@ gem 'devise'
 
 group :test do
   gem 'capybara', '1.1.2'
+	gem 'database_cleaner'
 end
 
 group :production do
