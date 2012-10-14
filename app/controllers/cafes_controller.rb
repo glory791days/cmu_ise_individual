@@ -1,4 +1,6 @@
 class CafesController < ApplicationController
+	before_filter :authenticate_user!, :except => [:show, :index]
+
   def index
     @cafes = Cafe.all
   end
