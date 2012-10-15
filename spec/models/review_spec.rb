@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Review do
 	let(:user) { FactoryGirl.create(:user) }
-	let(:cafe) { Cafe.create(:name => "Cafe Test")}
+	let(:cafe) { FactoryGirl.create(:cafe) }
 
   before { @review = user.reviews.build(content: "Good cafe", cafe_id: cafe.id) }
   subject { @review }
@@ -15,6 +15,7 @@ describe Review do
 	end
 
 	its(:user) { should == user }
+	its(:cafe) { should == cafe }
 
 	context "accessible attributes" do
 		it "should not allow access to user_id" do

@@ -3,11 +3,20 @@ class CafesController < ApplicationController
 
   def index
     @cafes = Cafe.all
+		respond_to do |format|
+			format.html
+			format.xml { render :xml => @cafes.to_xml }
+		end
   end
 
   def show
     id = params[:id]      #retrive cafe ID from URI
     @cafe = Cafe.find(id) #look up cafe
+		@reviews = @cafe.reviews.paginate(page: params[:page])
+		respond_to do |format|
+			format.html
+			format.xml { render :xml => { :cafe => @cafe.to_xml, :review => @reviews.to_xml } }
+		end
     #will render app/views/cafes/show.html.haml by default
   end
 
@@ -31,6 +40,7 @@ class CafesController < ApplicationController
 		respond_to do |format|
 			format.html {flash[:notice] = "#{@cafe.name} was successfully updated"; redirect_to cafe_path(@cafe) }
 			format.js {flash[:notice] = "#{@cafe.name} was successfully updated"; redirect_to edit_cafe_path(@cafe)}#edit
+			format.xml { render :xml => @cafe.xml }
 		end
   end
 

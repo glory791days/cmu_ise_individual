@@ -1,14 +1,29 @@
-<h3>Details about <%= @cafe.name %></h3>
+<% provide(:title, "Review of #{@cafe.name}") %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @cafe.name %>
+      </h1>
+      <ul>
+        <li>Building: <%= @cafe.place %></li>
+        <li>Category: <%= @cafe.category %></li>
+        <li>Average cost: $<%= @cafe.price %></li>
+        <li>Time to spend: <%= @cafe.time %>min</li>
+      </ul>
+      <%# for authorized user only <%= link_to 'Edit info', edit_cafe_path %>
+      <%= link_to 'Back to cafe list', cafes_path %>
+    </section>
+  </aside>
 
-<ul>
-  <li>Building: <%= @cafe.place %></li>
-  <li>Category: <%= @cafe.category %></li>
-  <li>Average cost: $<%= @cafe.price %></li>
-  <li>Time to spend: <%= @cafe.time %>min</li>
-</ul>
-
-<h3>Description:</h3>
-<p id="description"><%= @cafe.description %></p>
-
-<%= link_to 'Edit info', edit_cafe_path %>
-<%= link_to 'Back to cafe list', cafes_path %>
+  <div class="span8">
+    <% if @cafe.reviews.any? %>
+      <h3>Reviews (<%= @cafe.reviews.count %>)</h3>
+      <ol class="reviews">
+        <%# show reviews with users' name %>
+        <%= render @reviews, :ref => "user" %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+  </div>
+</div>

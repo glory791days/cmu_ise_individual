@@ -3,6 +3,8 @@ YnishidaInd::Application.routes.draw do
 
   resources :cafes
   root :to => redirect('/cafes')
+	match "/users/index" => "users#index", :as => "users"
+	match "/users/:id/" => "users#show", :as => "user"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

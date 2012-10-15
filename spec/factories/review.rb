@@ -5,5 +5,6 @@ FactoryGirl.define do
 		sequence(:cafe_id) {|n| n}
 		sequence(:content) {|n| "test review #{n}"}
 		user
+		cafe
 	end
 end

@@ -4,8 +4,7 @@
       <%= link_to "Bancha: Find your favorite cafe at CMU", '/', id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    '#' %></li>
-          <li><%= link_to "Help",    '#' %></li>
+          <li><%= link_to "Home",    '/' %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Welcome #{current_user.name}!", '#' %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>

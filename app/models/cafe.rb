@@ -3,4 +3,5 @@ class Cafe < ActiveRecord::Base
   attr_accessible :name, :place, :category, :price, :time, :description
 
 	validates :name, presence: true
+	has_many :reviews
 end
