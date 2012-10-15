@@ -27,4 +27,6 @@
   <% end %>
 </table>
 
-<%=  link_to 'Add new cafe', new_cafe_path %>
+<% if user_signed_in? %>
+  <%=  link_to 'Add new cafe', new_cafe_path %>
+<% end %>

@@ -18,6 +18,9 @@
 
   <div class="span8">
     <% if @cafe.reviews.any? %>
+      <% if user_signed_in? %>
+        <h3><%= link_to "Post your review", new_cafe_review_path(@cafe) %>  </h3>
+      <% end %>
       <h3>Reviews (<%= @cafe.reviews.count %>)</h3>
       <ol class="reviews">
         <%# show reviews with users' name %>

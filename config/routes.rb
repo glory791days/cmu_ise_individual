@@ -2,9 +2,12 @@ YnishidaInd::Application.routes.draw do
   devise_for :users
 
   resources :cafes
+	resources :reviews, :except => :new
   root :to => redirect('/cafes')
 	match "/users/index" => "users#index", :as => "users"
 	match "/users/:id/" => "users#show", :as => "user"
+	match "/cafes/:id/reviews/new" => "reviews#new", :as => "new_cafe_review"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

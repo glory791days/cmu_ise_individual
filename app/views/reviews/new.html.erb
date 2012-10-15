@@ -1,0 +1,42 @@
+<% provide(:title, "Post Review of #{@cafe.name}") %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @cafe.name %>
+      </h1>
+      <ul>
+        <li>Building: <%= @cafe.place %></li>
+        <li>Category: <%= @cafe.category %></li>
+        <li>Average cost: $<%= @cafe.price %></li>
+        <li>Time to spend: <%= @cafe.time %>min</li>
+      </ul>
+      <%# for authorized user only <%= link_to 'Edit info', edit_cafe_path %>
+      <%= link_to 'Back to cafe list', cafes_path %>
+    </section>
+  </aside>
+
+  <div class="span8" id="edit_form">
+    <h2>Post cafe review</h2>
+    <table>
+
+    <%= form_for :review, :url => { :action => "create" } do |f| %>
+        <%= label :review, :star, 'Give rate for the cafe (1-5)' %>
+        <%= f.text_field :star %><br />
+
+        <%= label :review, :content, 'Do you have any comment to share?' %>
+        <%= f.text_field :content %><br />
+
+        <%= label :review, :price, 'How much did you paid?' %>
+        <%= f.text_field :price %><br />
+
+        <%= label :review, :time, 'How long did you spend (in min)?' %>
+        <%= f.text_field :time %><br />
+
+      <%= f.submit 'Post Review' %>
+
+    <% end %>
+
+    </table>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class CafesController < ApplicationController
+	#allow guest to see only cafe list (index) and cafe information (show)
 	before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
@@ -39,8 +40,7 @@ class CafesController < ApplicationController
     @cafe.update_attributes!(params[:cafe])
 		respond_to do |format|
 			format.html {flash[:notice] = "#{@cafe.name} was successfully updated"; redirect_to cafe_path(@cafe) }
-			format.js {flash[:notice] = "#{@cafe.name} was successfully updated"; redirect_to edit_cafe_path(@cafe)}#edit
-			format.xml { render :xml => @cafe.xml }
+			format.js {flash[:notice] = "#{@cafe.name} was successfully updated"; redirect_to edit_cafe_path(@cafe)}
 		end
   end
 
@@ -49,7 +49,7 @@ class CafesController < ApplicationController
     @cafe.destroy
 		respond_to do |format|
 			format.html {flash[:notice] = "#{@cafe.name} was deleted"; redirect_to cafes_path}
-			format.js {flash[:notice] = "#{@cafe.name} was deleted"}
+			#format.js {flash[:notice] = "#{@cafe.name} was deleted"}
 		end
   end
 end
