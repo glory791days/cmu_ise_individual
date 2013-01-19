@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Review do
 	let(:user) { FactoryGirl.create(:user) }
 	let(:cafe) { FactoryGirl.create(:cafe) }
+	sign_in :user
 
   before { @review = user.reviews.build(content: "Good cafe", cafe_id: cafe.id) }
   subject { @review }

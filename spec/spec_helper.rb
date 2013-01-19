@@ -55,6 +55,7 @@ RSpec.configure do |config|
 
 	#for devise
 	config.include Devise::TestHelpers, :type => :controller
+	config.extend ControllerMacros, :type => :controller
 end
 
 module ::RSpec::Core
